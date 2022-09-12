@@ -17,6 +17,7 @@ public class StringSchema extends BaseSchema {
         listContains = new ArrayList<>();
     }
 
+    @Override
     public final boolean isValid(Object obj) {
         if (obj == null) {
             return !isRequired && !isMinLength && listContains.size() == 0;
@@ -42,6 +43,7 @@ public class StringSchema extends BaseSchema {
         return true;
     }
 
+    @Override
     public final void required() {
         isRequired = true;
         isMinLength = false;

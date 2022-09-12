@@ -16,6 +16,7 @@ public class NumberSchema extends BaseSchema {
         isRanged = false;
     }
 
+    @Override
     public final boolean isValid(Object obj) {
         if (obj == null) {
             return !isRequired && !isPositive && !isRanged;
@@ -32,6 +33,7 @@ public class NumberSchema extends BaseSchema {
         return !isRanged || (num >= rangeMin && num <= rangeMax);
     }
 
+    @Override
     public final void required() {
         isRanged = false;
         isPositive = false;
