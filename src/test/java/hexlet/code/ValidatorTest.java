@@ -4,14 +4,13 @@ import hexlet.code.schemas.BaseSchema;
 import hexlet.code.schemas.MapSchema;
 import hexlet.code.schemas.NumberSchema;
 import hexlet.code.schemas.StringSchema;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 class ValidatorTest {
 
     // begin -> magic number error off
@@ -107,7 +106,7 @@ class ValidatorTest {
     }
 
     @Test
-    @Disabled
+    //@Disabled
     void testValidatorIncludeMapSchema() {
         Validator v = new Validator();
 
@@ -120,7 +119,8 @@ class ValidatorTest {
 
         Map<String, Object> human1 = new HashMap<>();
         human1.put("name", "Kolya");
-        human1.put("age", 100);
+        final int someAge = 100;
+        human1.put("age", someAge);
         assertTrue(schema.isValid(human1)); // true
 
         Map<String, Object> human2 = new HashMap<>();
@@ -135,7 +135,8 @@ class ValidatorTest {
 
         Map<String, Object> human4 = new HashMap<>();
         human4.put("name", "Valya");
-        human4.put("age", -5);
+        final int someNegativeNumber = -5;
+        human4.put("age", someNegativeNumber);
         assertFalse(schema.isValid(human4)); // false
     }
 }

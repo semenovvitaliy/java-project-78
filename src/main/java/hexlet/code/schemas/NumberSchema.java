@@ -19,7 +19,7 @@ public class NumberSchema extends BaseSchema {
     @Override
     public final boolean isValid(Object obj) {
         if (obj == null) {
-            return !isRequired && !isPositive && !isRanged;
+            return !isRequired;
         }
         if (!(obj instanceof Integer)) {
             return false;
@@ -34,10 +34,11 @@ public class NumberSchema extends BaseSchema {
     }
 
     @Override
-    public final void required() {
+    public final BaseSchema required() {
         isRanged = false;
         isPositive = false;
         isRequired = true;
+        return this;
     }
 
     public final NumberSchema range(int a, int b) {

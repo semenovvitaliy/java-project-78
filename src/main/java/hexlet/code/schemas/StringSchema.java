@@ -44,10 +44,11 @@ public class StringSchema extends BaseSchema {
     }
 
     @Override
-    public final void required() {
+    public final BaseSchema required() {
         isRequired = true;
         isMinLength = false;
         listContains.clear();
+        return this;
     }
 
     public final StringSchema minLength(int a) {
