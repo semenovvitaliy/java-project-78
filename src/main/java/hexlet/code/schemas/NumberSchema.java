@@ -6,7 +6,7 @@ public class NumberSchema extends BaseSchema {
     @Override
     public final NumberSchema required() {
         resetList();
-        addCondition(c -> c instanceof Integer);
+        addCondition(c -> c instanceof Integer || c == null);
         return this;
     }
 
@@ -16,7 +16,7 @@ public class NumberSchema extends BaseSchema {
     }
 
     public final NumberSchema positive() {
-        addCondition(c -> c == null || ((Integer) c >= 0));
+        addCondition(c -> c == null || ((Integer) c > 0));
         return this;
     }
 }
