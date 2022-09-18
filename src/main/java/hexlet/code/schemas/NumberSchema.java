@@ -16,7 +16,7 @@ public class NumberSchema extends BaseSchema {
     }
 
     public final NumberSchema positive() {
-        addCondition(c -> c == null || ((Integer) c > 0));
+        addCondition(c -> ((Integer) c > 0));
         return this;
     }
 }
