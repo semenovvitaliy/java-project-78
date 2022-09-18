@@ -4,7 +4,7 @@ public class NumberSchema extends BaseSchema {
 
 
     @Override
-    public final BaseSchema required() {
+    public final NumberSchema required() {
         resetList();
         addCondition(c -> c instanceof Integer);
         return this;

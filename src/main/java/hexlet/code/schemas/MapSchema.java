@@ -5,7 +5,7 @@ import java.util.Map;
 public class MapSchema extends BaseSchema {
 
     @Override
-    public final BaseSchema required() {
+    public final MapSchema required() {
         resetList();
         addCondition(m -> m instanceof Map<?, ?>);
         return this;

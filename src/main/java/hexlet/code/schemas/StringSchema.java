@@ -3,7 +3,7 @@ package hexlet.code.schemas;
 public class StringSchema extends BaseSchema {
 
     @Override
-    public final BaseSchema required() {
+    public final StringSchema required() {
         resetList();
         addCondition(s -> s instanceof String && !"".equals(s));
         return this;
