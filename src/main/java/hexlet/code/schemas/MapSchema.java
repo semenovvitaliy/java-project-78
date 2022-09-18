@@ -4,11 +4,14 @@ import java.util.Map;
 
 public class MapSchema extends BaseSchema {
 
+    public MapSchema() {
+        addCondition(m -> m instanceof Map<?, ?>);
+    }
+
     @Override
     public final MapSchema required() {
-        resetList();
+        //resetList();
         setRequiredOn();
-        addCondition(m -> m instanceof Map<?, ?>);
         return this;
     }
 
