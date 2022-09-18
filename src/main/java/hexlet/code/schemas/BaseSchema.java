@@ -14,9 +14,6 @@ public abstract class BaseSchema {
     }
 
     public final boolean isValid(Object obj) {
-        if (conditions.size() == 0 && !required) {
-            return true;
-        }
         if (obj == null) {
             return required ? false : true;
         }
@@ -32,6 +29,9 @@ public abstract class BaseSchema {
 
     protected final void resetList() {
         conditions.clear();
+    }
+
+    protected final void setRequiredOn() {
         required = true;
     }
 }

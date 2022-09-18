@@ -5,6 +5,7 @@ public class StringSchema extends BaseSchema {
     @Override
     public final StringSchema required() {
         resetList();
+        setRequiredOn();
         addCondition(s -> s instanceof String && !"".equals(s));
         return this;
     }

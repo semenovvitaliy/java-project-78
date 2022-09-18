@@ -7,6 +7,7 @@ public class MapSchema extends BaseSchema {
     @Override
     public final MapSchema required() {
         resetList();
+        setRequiredOn();
         addCondition(m -> m instanceof Map<?, ?>);
         return this;
     }
