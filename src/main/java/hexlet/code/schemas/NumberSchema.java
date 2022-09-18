@@ -11,12 +11,12 @@ public class NumberSchema extends BaseSchema {
     }
 
     public final NumberSchema range(int a, int b) {
-        addCondition(c -> (Integer) c >= Math.min(a, b) && (Integer) c <= Math.max(a, b));
+        addCondition(c -> (Integer) c >= a && (Integer) c <=  b);
         return this;
     }
 
     public final NumberSchema positive() {
-        addCondition(c -> ((Integer) c > 0));
+        addCondition(c -> c == null || ((Integer) c > 0));
         return this;
     }
 }
