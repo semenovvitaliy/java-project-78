@@ -2,12 +2,14 @@ package hexlet.code.schemas;
 
 public class NumberSchema extends BaseSchema {
 
+    public NumberSchema() {
+        addCondition(c -> c instanceof Integer);
+    }
 
     @Override
     public final NumberSchema required() {
         //resetList();
         setRequiredOn();
-        addCondition(c -> c instanceof Integer);
         return this;
     }
 

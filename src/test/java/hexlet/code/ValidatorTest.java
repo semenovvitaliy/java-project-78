@@ -59,26 +59,28 @@ class ValidatorTest {
 
         assertTrue(schema.isValid(null), "Number Test 1 failed");
 
+        assertFalse(schema.isValid("abc"), "Number Test 2 failed"); //false
+
         schema.required();
 
-        assertFalse(schema.isValid(null), "Number Test 2 failed"); // false
-        assertTrue(schema.isValid(ten), "Number Test 3 failed"); // true
-        assertFalse(schema.isValid("5"), "Number Test 4 failed"); // false
+        assertFalse(schema.isValid(null), "Number Test 3 failed"); // false
+        assertTrue(schema.isValid(ten), "Number Test 4 failed"); // true
+        assertFalse(schema.isValid("5"), "Number Test 5 failed"); // false
 
-        assertTrue(schema.positive().isValid(ten), "Number Test 5 failed"); // true
-        assertFalse(schema.isValid(-ten), "Number Test 6 failed"); // false
+        assertTrue(schema.positive().isValid(ten), "Number Test 6 failed"); // true
+        assertFalse(schema.isValid(-ten), "Number Test 7 failed"); // false
 
         schema.range(five, ten);
 
-        assertTrue(schema.isValid(five), "Number Test 7 failed"); // true
-        assertTrue(schema.isValid(ten), "Number Test 8 failed"); // true
+        assertTrue(schema.isValid(five), "Number Test 8 failed"); // true
+        assertTrue(schema.isValid(ten), "Number Test 9 failed"); // true
         final int four = 4;
-        assertFalse(schema.isValid(four), "Number Test 9 failed"); // false
+        assertFalse(schema.isValid(four), "Number Test 10 failed"); // false
         final int eleven = 11;
-        assertFalse(schema.isValid(eleven), "Number Test 10 failed"); // false
+        assertFalse(schema.isValid(eleven), "Number Test 11 failed"); // false
 
         final int seven = 7;
-        assertTrue(schema.range(five, ten).isValid(seven), "Number Test 11 failed"); // true
+        assertTrue(schema.range(five, ten).isValid(seven), "Number Test 12 failed"); // true
     }
 
     @Test
